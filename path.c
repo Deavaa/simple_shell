@@ -5,7 +5,7 @@
  * Return: path
  */
 
-char *find_path(void)
+char *find_p(void)
 {
 	int x;
 	char **env = environ, *path = NULL;
