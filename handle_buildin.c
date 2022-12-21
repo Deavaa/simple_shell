@@ -11,14 +11,14 @@ int handle_builtin(char **com, char *rd)
 {
 	struct builtin builtin = {"env", "exit"};
 
-	if (_strcmp(*command, builtin.env) == 0)
+	if (_strcmp(*com, builtin.env) == 0)
 	{
 		print_env();
 		return (1);
 	}
-	else if (_strcmp(*command, builtin.exit) == 0)
+	else if (_strcmp(*com, builtin.exit) == 0)
 	{
-		exit_cmd(command, line);
+		exit_cmd(com, rd);
 		return (1);
 	}
 	return (0);
