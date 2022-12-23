@@ -1,8 +1,8 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * prompt_user - prints $ to let user know the program is ready to take their input
- * Return: nothing
+ * Return: no return
  */
 
 void prompt_user(void)

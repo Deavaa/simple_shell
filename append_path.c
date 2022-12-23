@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * append_path - adds path to command
@@ -16,19 +16,19 @@ char *append_path(char *path, char *command)
 		command = "";
 	if (path == 0)
 		path = "";
-		buf = malloc(sizeof(char) * (_strlen(path) + _strlen(command) + 2));
+	buf = malloc(sizeof(char) * (_strlen(path) + _strlen(command) + 2));
 	if (!buf)
 		return (NULL);
-		while (path[i])
-		{
-			buf[i] = path[i];
-			i++;
-		}
-		if (path[i - 1] != '/')
-		{
-			buf[i] = '/';
-			i++;
-		}
+	while (path[i])
+	{
+		buf[i] = path[i];
+		i++;
+	}
+	if (path[i - 1] != '/')
+	{
+		buf[i] = '/';
+		i++;
+	}
 	while (command[j])
 	{
 		buf[i + j] = command[j];

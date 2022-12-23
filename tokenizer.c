@@ -1,50 +1,47 @@
-#include "main.h"
+#include "shell.h"
 
 /**
- * n_string - return the number of occurent of a string
- * @s: string to check
- * Return: int
+ * tokenizer - creates tokens from given input
+ * @line: to be tokenized
+ * Return: array of strings
  */
 
-unsigned int n_string(char *s)
+char **tokenizer(char *line)
 {
-	int i, n = 0;
+	char *buf = NULL, *bufp = NULL, *token = NULL, *delim = " :\t\r\n";
+	char **tokens = NULL;
+	int tokensize = 1;
+	size_t index = 0, flag = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	buf = _strdup(line);
+	if (!buf)
+		return (NULL);
+	bufp = buf;
+	while (*bufp)
 	{
-		if (s[i]  == ' ')
-			n++;
+		if (_strchr(delim, *bufp) != NULL && flag == 0)
+		{
+			tokensize++;
+			flag = 1;
+		}
+		else if (_strchr(delim, *bufp) == NULL && flag == 1)
+			flag = 0;
+		bufp++;
 	}
-	return (n);
-}
-
-/**
- * toknizer - split a sentence into multiple words.
- * @s: the string passed as argument.
- * Return: tokens
- */
-
-char **toknizer char *s)
-{
-	int i = 0;
-	const char separator[] = " ";
-	int spaces = n_string(s);
-	char **tokens = malloc(sizeof(char *) * (spaces + 1));
-	char *token;
-
-	if (!tokens)
+	tokens = malloc(sizeof(char *) * (tokensize + 1));
+	token = strtok(buf, delim);
+	while (token)
 	{
-		fprintf(stderr, "sh: allocation error\n");
-		exit(1);
+		tokens[index] = _strdup(token);
+		if (tokens[index] == NULL)
+		{
+			free(tokens);
+			return (NULL);
+		}
+		token = strtok(NULL, delim);
+		index++;
 	}
-
-	token = strtok(s, separator);
-	while (token != NULL)
-	{
-		tokens[i] = token;
-		token = strtok(NULL, separator);
-		i++;
-	}
-	tokens[i] = NULL;
+	tokens[index] = '\0';
+	free(buf);
 	return (tokens);
 }

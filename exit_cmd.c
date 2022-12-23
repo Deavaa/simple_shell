@@ -1,4 +1,5 @@
-#include "main.h"
+#include "shell.h"
+
 /**
  * exit_cmd - handles the exit command
  * @command: tokenized command

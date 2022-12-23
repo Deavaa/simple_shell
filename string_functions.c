@@ -1,9 +1,9 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * _strcmp - compares two strings
- * @s1: compared to s2
- * @s2: compared to s1
+ * @s1: compared to s2;
+ * @s2: compared to s1;
  * Return: returns difference between strings
  */
 
@@ -55,6 +55,7 @@ int _strncmp(char *s1, char *s2, int n)
 	return (0);
 }
 
+
 /**
  * _strdup - dupicates string
  * @s: to be duplicated
@@ -63,6 +64,7 @@ int _strncmp(char *s1, char *s2, int n)
 
 char *_strdup(char *s)
 {
+
 	char *ptr;
 	int i, len;
 
@@ -78,9 +80,8 @@ char *_strdup(char *s)
 	return (ptr);
 }
 
-
 /**
- * strchr - locates a character in a string
+ * _strchr - locates a character in a string
  * @s: string to be checked
  * @c: character to be located
  * Return: returns pointer to first occurence of character
