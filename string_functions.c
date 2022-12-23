@@ -64,7 +64,6 @@ int _strncmp(char *s1, char *s2, int n)
 
 char *_strdup(char *s)
 {
-
 	char *ptr;
 	int i, len;
 
