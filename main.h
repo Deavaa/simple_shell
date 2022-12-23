@@ -8,24 +8,17 @@
 #include <sys/wait.h>
 #include <string.h>
 
-int _strlen(const char *s);
-char *_strcpy(char *dest, const char *src);
-int _putchar(char c);
-void putsfun(char *str);
-unsigned int nbr_spaces(char *s);
-char **stringToTokens(char *str);
-
 extern char **environ;
 extern __sighandler_t signal(int __sig, __sighandler_t __handler);
 int checker(char **cmd, char *buf);
 void prompt_user(void);
 void handle_signal(int m);
-char **tokenizer(char *line);
-char *test_path(char **path, char *command);
-char *append_path(char *path, char *command);
+char **tokenizer(char *rd);
+char *test_path(char **path, char *cmd);
+char *append_path(char *path, char *cmd);
 int handle_builtin(char **cmd, char *rd);
 
-void exit_cmd(char **command, char *line);
+void exit_cmd(char **cmd, char *rd);
 void print_env(void);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
