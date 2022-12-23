@@ -11,7 +11,7 @@ void free_buffers(char **buf)
 	int i = 0;
 
 	if (!buf || buf == NULL)
-		return (0);
+		return;
 	while (buf[i])
 	{
 		free(buf[i]);
