@@ -10,22 +10,22 @@
 
 extern char **environ;
 extern __sighandler_t signal(int __sig, __sighandler_t __handler);
-int checker(char **cmd, char *buf);
+int checker(char **command, char *buf);
 void prompt_user(void);
 void handle_signal(int m);
-char **tokenizer(char *rd);
-char *test_path(char **path, char *cmd);
-char *append_path(char *path, char *cmd);
-int handle_builtin(char **cmd, char *rd);
+char **tokenizer(char *line);
+char *test_path(char **path, char *command);
+char *append_path(char *path, char *command);
+int handle_builtin(char **command, char *line);
 
-void exit_cmd(char **cmd, char *rd);
+void exit_cmd(char **command, char *line);
 void print_env(void);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 int _strncmp(char *s1, char *s2, int n);
 char *_strdup(char *s);
 char *_strchr(char *s, char c);
-void execution(char *cp, char **cmd);
+void execution(char *cp, char **command);
 char *find_path(void);
 void free_buffers(char **buf);
 
