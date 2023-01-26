@@ -6,20 +6,24 @@
  * @line: input read from stdin
  * Return: 1 if executed, 0 if not
  */
-
-int handle_builtin(char **command, char *line)
+int (*get_builtin(char *cmd))(data_shell *datash)
 {
-	struct builtin builtin = {"env", "exit"};
+	builtin_t builtin[] = {
+		{ "env", _env },
+		{ "exit", exit_shell },
+		{ "setenv", _setenv },
+		{ "unsetenv", _unsetenv },
+		{ "cd", cd_shell },
+		{ "help", get_help },
+		{ NULL, NULL }
+	};
+	int i;
 
-	if (_strcmp(*command, builtin.env) == 0)
+	for (i = 0; builtin[i].name; i++)
 	{
-		print_env();
-		return (1);
+		if (_strcmp(builtin[i].name, cmd) == 0)
+			break;
 	}
-	else if (_strcmp(*command, builtin.exit) == 0)
-	{
-		exit_cmd(command, line);
-		return (1);
-	}
-	return (0);
+
+	return (builtin[i].f)
 }
